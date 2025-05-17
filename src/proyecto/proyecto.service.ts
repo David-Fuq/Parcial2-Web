@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProyectoEntity } from './proyecto.entity/proyecto.entity';
 import { EstudianteEntity } from 'src/estudiante/estudiante.entity/estudiante.entity';
+import { ProfesorEntity } from 'src/profesor/profesor.entity/profesor.entity';
 
 @Injectable()
 export class ProyectoService {
@@ -10,7 +11,9 @@ export class ProyectoService {
         @InjectRepository(ProyectoEntity)
         private readonly proyectoRepository: Repository<ProyectoEntity>,
         @InjectRepository(EstudianteEntity)
-        private readonly estudianteRepository: Repository<EstudianteEntity>
+        private readonly estudianteRepository: Repository<EstudianteEntity>,
+        @InjectRepository(ProfesorEntity)
+        private readonly profesorRepository: Repository<ProfesorEntity>,
     ){}
 
     async crearProyecto(proyecto: ProyectoEntity): Promise<ProyectoEntity> {
@@ -21,6 +24,18 @@ export class ProyectoService {
         if (proyecto.titulo.length <= 15){
             throw new BadRequestException('El titulo no puede ser menor o igual a 15 caracteres');
         }
+
+        const estudiante: EstudianteEntity | null = await this.estudianteRepository.findOne({ where: { id: proyecto.lider.id } });
+        if (estudiante === null) {
+            throw new BadRequestException('El estudiante no existe');
+        }   
+
+        const profesor: ProfesorEntity | null = await this.profesorRepository.findOne({ where: { id: proyecto.mentor.id } });
+        if (profesor === null) {
+            throw new BadRequestException('El profesor no existe');
+        }
+
+
         return await this.proyectoRepository.save(proyecto);
     }
 
@@ -41,6 +56,6 @@ export class ProyectoService {
         if (proyecto === null) {
             throw new BadRequestException('El proyecto no existe');
         }
-        return [proyecto.estudiante];
+        return [proyecto.lider];
     }
 }

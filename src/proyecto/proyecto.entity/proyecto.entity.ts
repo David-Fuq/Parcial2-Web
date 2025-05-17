@@ -29,7 +29,7 @@ export class ProyectoEntity {
     fecha_fin: string;
 
     @ManyToOne(() => EstudianteEntity, estudiante => estudiante.proyectos)
-    estudiante: EstudianteEntity;
+    lider: EstudianteEntity;
 
     @ManyToOne(() => ProfesorEntity, profesor => profesor.mentorias)
     mentor: ProfesorEntity;
