@@ -17,7 +17,7 @@ export class ProyectoService {
     ){}
 
     async crearProyecto(proyecto: ProyectoEntity): Promise<ProyectoEntity> {
-        if (proyecto.presupuesto < 0){
+        if (proyecto.presupuesto <= 0){
             throw new BadRequestException('El presupuesto no puede ser menor o igual a 0');
         }
 
@@ -25,7 +25,7 @@ export class ProyectoService {
             throw new BadRequestException('El titulo no puede ser menor o igual a 15 caracteres');
         }
 
-        const estudiante: EstudianteEntity | null = await this.estudianteRepository.findOne({ where: { id: proyecto.lider.id } });
+        const estudiante: EstudianteEntity | null = await this.estudianteRepository.findOne({ where: { id: proyecto!.lider!.id } });
         if (estudiante === null) {
             throw new BadRequestException('El estudiante no existe');
         }   
@@ -55,6 +55,10 @@ export class ProyectoService {
         const proyecto: ProyectoEntity | null = await this.proyectoRepository.findOne({ where: { id }, relations: ['estudiantes'] });
         if (proyecto === null) {
             throw new BadRequestException('El proyecto no existe');
+        }
+
+        if (proyecto.lider === null) {
+            return [];
         }
         return [proyecto.lider];
     }

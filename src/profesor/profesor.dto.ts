@@ -26,8 +26,5 @@ export class ProfesorDto {
     @IsNotEmpty()
     readonly esParEvaluador: boolean;
 
-    @IsObject()
-    @IsNotEmpty()
-    readonly mentorias: IdObject[];
 
 }

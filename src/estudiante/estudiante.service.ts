@@ -2,12 +2,16 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EstudianteEntity } from './estudiante.entity/estudiante.entity';
 import { Repository } from 'typeorm';
+import { ProyectoEntity } from 'src/proyecto/proyecto.entity/proyecto.entity';
 
 @Injectable()
 export class EstudianteService {
     constructor(
        @InjectRepository(EstudianteEntity)
-       private readonly estudianteRepository: Repository<EstudianteEntity>
+       private readonly estudianteRepository: Repository<EstudianteEntity>,
+
+       @InjectRepository(ProyectoEntity)
+       private readonly proyectoRepository: Repository<ProyectoEntity>
    ){}
 
    async crearEstudiante(estudiante: EstudianteEntity): Promise<EstudianteEntity> {
@@ -35,13 +39,22 @@ export class EstudianteService {
         }
 
         const proyectos = estudiante.proyectos;
+        if (proyectos.length === 0 || proyectos === null) {
+            await this.estudianteRepository.remove([estudiante]);
+            return;
+        }
         for (const proyecto of proyectos) {
             if (
-                    new Date(proyecto.fecha_inicio).getTime() > Date.now() && 
-                    new Date(proyecto.fecha_fin).getTime() < Date.now()
+                    new Date(proyecto.fecha_inicio).getTime() <= Date.now() && 
+                    new Date(proyecto.fecha_fin).getTime() >= Date.now()
                 ) {
                     throw new BadRequestException("No se puede eliminar el estudiante porque tiene proyectos en curso");
                 }
+        }
+
+        for (const proyecto of proyectos){
+            proyecto.lider = null;
+            await this.proyectoRepository.save(proyecto);
         }
 
         await this.estudianteRepository.remove([estudiante]);

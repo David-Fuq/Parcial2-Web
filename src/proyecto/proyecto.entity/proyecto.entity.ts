@@ -13,10 +13,10 @@ export class ProyectoEntity {
     @Column()
     area: string;
 
-    @Column()
+    @Column({type: 'real'})
     presupuesto: number;
 
-    @Column()
+    @Column({type: 'real'})
     nota_final: number;
 
     @Column()
@@ -28,8 +28,8 @@ export class ProyectoEntity {
     @Column()
     fecha_fin: string;
 
-    @ManyToOne(() => EstudianteEntity, estudiante => estudiante.proyectos)
-    lider: EstudianteEntity;
+    @ManyToOne(() => EstudianteEntity, estudiante => estudiante.proyectos, { nullable: true, onDelete: 'SET NULL' })
+    lider: EstudianteEntity | null;
 
     @ManyToOne(() => ProfesorEntity, profesor => profesor.mentorias)
     mentor: ProfesorEntity;

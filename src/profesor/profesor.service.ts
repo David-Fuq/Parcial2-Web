@@ -17,12 +17,7 @@ export class ProfesorService {
     
     async crearProfesor(profesor: ProfesorEntity): Promise<ProfesorEntity> {
         if (profesor.extension.toString().length !== 5) {
-            throw new BadRequestException('La extension no puede ser menor a 7 digitos');
-        }
-        const proyecto: string = profesor.mentorias[0].id;
-        const proyectoEntity: EvaluacionEntity | null = await this.evaluacionRepository.findOne({ where: { id: proyecto } });
-        if (proyectoEntity === null) {
-            throw new BadRequestException('El proyecto asignado no existe');
+            throw new BadRequestException('La extension no puede tener una cantidad de digitos diferente a 5');
         }
         return await this.profesorRepository.save(profesor);
     }
