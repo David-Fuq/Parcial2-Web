@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "c859841b-5161-4c44-b2c5-660cfd3f2067",
-		"name": "Profesores",
+		"_postman_id": "88dcb07d-c81e-4931-a2d9-21fd5fb33375",
+		"name": "Proyectos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "39038264"
 	},
@@ -90,101 +90,12 @@
 							"expires": "Invalid Date"
 						}
 					],
-					"body": "{\n    \"id\": \"f4be9fba-3242-45d6-82e5-bb91ae8cf824\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Daniel Trivino\",\n    \"semestre\": 5,\n    \"programa\": \"Sistemas\",\n    \"promedio\": 4.99\n}"
+					"body": "{\n    \"id\": \"cf231f61-da32-4929-bb5f-7f603fd4433e\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Daniel Trivino\",\n    \"semestre\": 5,\n    \"programa\": \"Sistemas\",\n    \"promedio\": 4.99\n}"
 				}
 			]
 		},
 		{
-			"name": "Crear Profesor extension invalida",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get the expected error message\", function () {\r",
-							"    var data = pm.response.json();\r",
-							"    pm.expect(data.message).to.eql(\"La extension no puede tener una cantidad de digitos diferente a 5\")\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 123456,\r\n    \"esParEvaluador\": true\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}/profesores",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"profesores"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear Profesor extension invalida",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 123456,\r\n    \"esParEvaluador\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/profesores",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"profesores"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"message\": \"La extension no puede tener una cantidad de digitos diferente a 5\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
-				}
-			]
-		},
-		{
-			"name": "Crear Profesor mentor",
+			"name": "Crear Profesor",
 			"event": [
 				{
 					"listen": "test",
@@ -192,7 +103,7 @@
 						"exec": [
 							"var data = pm.response.json()\r",
 							"\r",
-							"pm.globals.set(\"profesor_mentor_id\", data.id);\r",
+							"pm.globals.set(\"profesor_id\", data.id);\r",
 							"\r",
 							"pm.test(\"Status code is 201\", function () {\r",
 							"   pm.response.to.have.status(201);\r",
@@ -227,7 +138,7 @@
 			},
 			"response": [
 				{
-					"name": "Crear Profesor mentor",
+					"name": "Crear Profesor",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -267,95 +178,7 @@
 							"expires": "Invalid Date"
 						}
 					],
-					"body": "{\n    \"id\": \"24dba45f-6df8-400c-bc0d-aa5a52e3958d\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Cathe Jaque\",\n    \"departamento\": \"Psicologia\",\n    \"extension\": 12345,\n    \"esParEvaluador\": true\n}"
-				}
-			]
-		},
-		{
-			"name": "Crear Profesor evaluador",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"\r",
-							"pm.globals.set(\"profesor_evaluador_id\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 12345,\r\n    \"esParEvaluador\": true\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}/profesores",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"profesores"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear Profesor evaluador",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 12345,\r\n    \"esParEvaluador\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/profesores",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"profesores"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"id\": \"be829456-34e1-4a8c-a721-9a11d2a4cc2e\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Cathe Jaque\",\n    \"departamento\": \"Psicologia\",\n    \"extension\": 12345,\n    \"esParEvaluador\": true\n}"
+					"body": "{\n    \"id\": \"35d90756-0869-4315-aa16-db9006ce1cce\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Cathe Jaque\",\n    \"departamento\": \"Psicologia\",\n    \"extension\": 12345,\n    \"esParEvaluador\": true\n}"
 				}
 			]
 		},
@@ -384,7 +207,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_mentor_id}}\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -409,7 +232,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_mentor_id}}\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -443,350 +266,12 @@
 							"expires": "Invalid Date"
 						}
 					],
-					"body": "{\n    \"id\": \"d4454133-ada0-47ad-9faa-b24273a1d62b\",\n    \"titulo\": \"Proyecto X 4632634\",\n    \"area\": \"Sistemas\",\n    \"presupuesto\": 432500,\n    \"nota_final\": 4.67,\n    \"estado\": 3,\n    \"fecha_inicio\": \"2025-05-15\",\n    \"fecha_fin\": \"2025-05-20\",\n    \"lider\": {\n        \"id\": \"f4be9fba-3242-45d6-82e5-bb91ae8cf824\"\n    },\n    \"mentor\": {\n        \"id\": \"24dba45f-6df8-400c-bc0d-aa5a52e3958d\"\n    }\n}"
+					"body": "{\n    \"id\": \"e9424dd7-a2a7-404a-b3ca-679990d134a9\",\n    \"titulo\": \"Proyecto X 4632634\",\n    \"area\": \"Sistemas\",\n    \"presupuesto\": 432500,\n    \"nota_final\": 4.67,\n    \"estado\": 3,\n    \"fecha_inicio\": \"2025-05-15\",\n    \"fecha_fin\": \"2025-05-20\",\n    \"lider\": {\n        \"id\": \"cf231f61-da32-4929-bb5f-7f603fd4433e\"\n    },\n    \"mentor\": {\n        \"id\": \"35d90756-0869-4315-aa16-db9006ce1cce\"\n    }\n}"
 				}
 			]
 		},
 		{
-			"name": "Crear Evaluacion",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"\r",
-							"pm.globals.set(\"evaluacion_id_1\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"profesor\": {\r\n        \"id\": \"{{profesor_evaluador_id}}\"\r\n    },\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}/evaluaciones",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"evaluaciones"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear Evaluacion",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"profesor\": {\r\n        \"id\": \"{{profesor_evaluador_id}}\"\r\n    },\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/evaluaciones",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"evaluaciones"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"id\": \"27835831-f593-4209-9ad9-484a056f047a\",\n    \"calificacion\": 4.2,\n    \"proyecto\": {\n        \"id\": \"d4454133-ada0-47ad-9faa-b24273a1d62b\"\n    },\n    \"profesor\": {\n        \"id\": \"be829456-34e1-4a8c-a721-9a11d2a4cc2e\"\n    }\n}"
-				}
-			]
-		},
-		{
-			"name": "Crear Evaluacion 2",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"\r",
-							"pm.globals.set(\"evaluacion_id_2\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"profesor\": {\r\n        \"id\": \"{{profesor_evaluador_id}}\"\r\n    },\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}/evaluaciones",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"evaluaciones"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear Evaluacion 2",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"profesor\": {\r\n        \"id\": \"{{profesor_evaluador_id}}\"\r\n    },\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/evaluaciones",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"evaluaciones"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"id\": \"740e33a8-6ac9-4489-b8fa-54d44ef97ca2\",\n    \"calificacion\": 4.2,\n    \"proyecto\": {\n        \"id\": \"d4454133-ada0-47ad-9faa-b24273a1d62b\"\n    },\n    \"profesor\": {\n        \"id\": \"be829456-34e1-4a8c-a721-9a11d2a4cc2e\"\n    }\n}"
-				}
-			]
-		},
-		{
-			"name": "Crear Evaluacion 3 sin profesor",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"\r",
-							"pm.globals.set(\"evaluacion_id_3\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}/evaluaciones",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"evaluaciones"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear Evaluacion 3 sin profesor",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/evaluaciones",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"evaluaciones"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"id\": \"ec772cf2-7882-4634-bfe0-d59cab194bad\",\n    \"calificacion\": 4.2,\n    \"proyecto\": {\n        \"id\": \"d4454133-ada0-47ad-9faa-b24273a1d62b\"\n    }\n}"
-				}
-			]
-		},
-		{
-			"name": "Asignar Evaluador",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/profesores/{{profesor_evaluador_id}}/evaluaciones/{{evaluacion_id_3}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"profesores",
-						"{{profesor_evaluador_id}}",
-						"evaluaciones",
-						"{{evaluacion_id_3}}"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Asignar Evaluador",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/profesores/{{profesor_evaluador_id}}/evaluaciones/{{evaluacion_id_3}}",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"profesores",
-								"{{profesor_evaluador_id}}",
-								"evaluaciones",
-								"{{evaluacion_id_3}}"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"id\": \"be829456-34e1-4a8c-a721-9a11d2a4cc2e\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Cathe Jaque\",\n    \"departamento\": \"Psicologia\",\n    \"extension\": 12345,\n    \"esParEvaluador\": true,\n    \"evaluaciones\": [\n        {\n            \"id\": \"27835831-f593-4209-9ad9-484a056f047a\",\n            \"calificacion\": 4.2\n        },\n        {\n            \"id\": \"740e33a8-6ac9-4489-b8fa-54d44ef97ca2\",\n            \"calificacion\": 4.2\n        },\n        {\n            \"id\": \"ec772cf2-7882-4634-bfe0-d59cab194bad\",\n            \"calificacion\": 4.2\n        }\n    ]\n}"
-				}
-			]
-		},
-		{
-			"name": "Asignar Evaluador profesor invalido",
+			"name": "Crear Proyecto mentor invalido",
 			"event": [
 				{
 					"listen": "test",
@@ -809,35 +294,47 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{baseURL}}/profesores/00000000-0000-0000-0000-000000000000/evaluaciones/{{evaluacion_id_1}}",
+					"raw": "{{baseURL}}/proyectos",
 					"host": [
 						"{{baseURL}}"
 					],
 					"path": [
-						"profesores",
-						"00000000-0000-0000-0000-000000000000",
-						"evaluaciones",
-						"{{evaluacion_id_1}}"
+						"proyectos"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Asignar Evaluador profesor invalido",
+					"name": "Crear Proyecto mentor invalido",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{baseURL}}/profesores/00000000-0000-0000-0000-000000000000/evaluaciones/{{evaluacion_id_1}}",
+							"raw": "{{baseURL}}/proyectos",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"profesores",
-								"00000000-0000-0000-0000-000000000000",
-								"evaluaciones",
-								"{{evaluacion_id_1}}"
+								"proyectos"
 							]
 						}
 					},
@@ -863,7 +360,7 @@
 			]
 		},
 		{
-			"name": "Asignar Evaluador evaluacion invalida",
+			"name": "Crear Proyecto lider invalido",
 			"event": [
 				{
 					"listen": "test",
@@ -875,7 +372,7 @@
 							"\r",
 							"pm.test(\"Get the expected error message\", function () {\r",
 							"    var data = pm.response.json();\r",
-							"    pm.expect(data.message).to.eql(\"La evaluacion no existe\")\r",
+							"    pm.expect(data.message).to.eql(\"El estudiante no existe\")\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -886,34 +383,583 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{baseURL}}/profesores/{{profesor_evaluador_id}}/evaluaciones/00000000-0000-0000-0000-000000000000",
+					"raw": "{{baseURL}}/proyectos",
 					"host": [
 						"{{baseURL}}"
 					],
 					"path": [
-						"profesores",
-						"{{profesor_evaluador_id}}",
-						"evaluaciones",
+						"proyectos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Proyecto lider invalido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/proyectos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El estudiante no existe\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Proyecto Presupuesto Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get the expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El presupuesto no puede ser menor o igual a 0\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 0,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/proyectos",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"proyectos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Proyecto Presupuesto Invalido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 0,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/proyectos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El presupuesto no puede ser menor o igual a 0\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Proyecto Titulo Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get the expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El titulo no puede ser menor o igual a 15 caracteres\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Proyecto X\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/proyectos",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"proyectos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Proyecto Titulo Invalido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/proyectos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El titulo no puede ser menor o igual a 15 caracteres\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener Estudiantes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/proyectos/{{proyecto_id}}/estudiantes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"proyectos",
+						"{{proyecto_id}}",
+						"estudiantes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener Estudiantes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/proyectos/{{proyecto_id}}/estudiantes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos",
+								"{{proyecto_id}}",
+								"estudiantes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "[\n    {\n        \"id\": \"cf231f61-da32-4929-bb5f-7f603fd4433e\",\n        \"cedula\": 100596961,\n        \"nombre\": \"Daniel Trivino\",\n        \"semestre\": 5,\n        \"programa\": \"Sistemas\",\n        \"promedio\": 4.99\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener Estudiantes con proyecto invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get the expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El proyecto no existe\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/proyectos/00000000-0000-0000-0000-000000000000/estudiantes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"proyectos",
+						"00000000-0000-0000-0000-000000000000",
+						"estudiantes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener Estudiantes con proyecto invalido",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/proyectos/00000000-0000-0000-0000-000000000000/estudiantes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos",
+								"00000000-0000-0000-0000-000000000000",
+								"estudiantes"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El proyecto no existe\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "Avanzar Proyecto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/proyectos/{{proyecto_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"proyectos",
+						"{{proyecto_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Avanzar Proyecto",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/proyectos/{{proyecto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos",
+								"{{proyecto_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"e9424dd7-a2a7-404a-b3ca-679990d134a9\",\n    \"titulo\": \"Proyecto X 4632634\",\n    \"area\": \"Sistemas\",\n    \"presupuesto\": 432500,\n    \"nota_final\": 4.67,\n    \"estado\": 4,\n    \"fecha_inicio\": \"2025-05-15\",\n    \"fecha_fin\": \"2025-05-20\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Avanzar Proyecto en Estado Final",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get the expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El proyecto ya esta en su etapa final\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/proyectos/{{proyecto_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"proyectos",
+						"{{proyecto_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Avanzar Proyecto en Estado Final",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/proyectos/{{proyecto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos",
+								"{{proyecto_id}}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El proyecto ya esta en su etapa final\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "Avanzar Proyecto Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get the expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"El proyecto no existe\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/proyectos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"proyectos",
 						"00000000-0000-0000-0000-000000000000"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Asignar Evaluador evaluacion invalida",
+					"name": "Avanzar Proyecto Invalido",
 					"originalRequest": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/profesores/{{profesor_evaluador_id}}/evaluaciones/00000000-0000-0000-0000-000000000000",
+							"raw": "{{baseURL}}/proyectos/00000000-0000-0000-0000-000000000000",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"profesores",
-								"{{profesor_evaluador_id}}",
-								"evaluaciones",
+								"proyectos",
 								"00000000-0000-0000-0000-000000000000"
 							]
 						}
@@ -935,171 +981,7 @@
 							"expires": "Invalid Date"
 						}
 					],
-					"body": "{\r\n    \"message\": \"La evaluacion no existe\",\r\n    \"error\": \"Bad Request\",\r\n    \"statusCode\": 400\r\n}"
-				}
-			]
-		},
-		{
-			"name": "Crear Evaluacion 4 sin profesor",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"\r",
-							"pm.globals.set(\"evaluacion_id_4\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}/evaluaciones",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"evaluaciones"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear Evaluacion 4 sin profesor",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/evaluaciones",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"evaluaciones"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"id\": \"cb01a361-9b3d-4245-b95a-6a8e43be6220\",\n    \"calificacion\": 4.2,\n    \"proyecto\": {\n        \"id\": \"d4454133-ada0-47ad-9faa-b24273a1d62b\"\n    }\n}"
-				}
-			]
-		},
-		{
-			"name": "Asignar Evaluador con 3 proyectos",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get the expected error message\", function () {\r",
-							"    var data = pm.response.json();\r",
-							"    pm.expect(data.message).to.eql(\"El profesor ya tiene 3 evaluaciones asignadas\")\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/profesores/{{profesor_evaluador_id}}/evaluaciones/{{evaluacion_id_4}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"profesores",
-						"{{profesor_evaluador_id}}",
-						"evaluaciones",
-						"{{evaluacion_id_4}}"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Asignar Evaluador con 3 proyectos",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/profesores/{{profesor_evaluador_id}}/evaluaciones/{{evaluacion_id_4}}",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"profesores",
-								"{{profesor_evaluador_id}}",
-								"evaluaciones",
-								"{{evaluacion_id_4}}"
-							]
-						}
-					},
-					"code": 400,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [
-						{
-							"expires": "Invalid Date"
-						}
-					],
-					"body": "{\n    \"message\": \"El profesor ya tiene 3 evaluaciones asignadas\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+					"body": "{\n    \"message\": \"El proyecto no existe\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
 				}
 			]
 		}

@@ -52,7 +52,7 @@ export class ProyectoService {
     }
 
     async findAllEstudiantes(id: string): Promise<EstudianteEntity[]> {
-        const proyecto: ProyectoEntity | null = await this.proyectoRepository.findOne({ where: { id }, relations: ['estudiantes'] });
+        const proyecto: ProyectoEntity | null = await this.proyectoRepository.findOne({ where: { id }, relations: ['lider'] });
         if (proyecto === null) {
             throw new BadRequestException('El proyecto no existe');
         }

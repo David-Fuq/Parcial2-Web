@@ -48,7 +48,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Estudiante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Daniel Trivino\",\r\n    \"semestre\": 5,\r\n    \"programa\": \"Sistemas\",\r\n    \"promedio\": 4.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/estudiantes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"bbc0a54d-7b64-40e7-b741-35be4efd30d2\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Daniel Trivino\",\n    \"semestre\": 5,\n    \"programa\": \"Sistemas\",\n    \"promedio\": 4.99\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Profesor mentor",
@@ -92,7 +136,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Profesor mentor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 12345,\r\n    \"esParEvaluador\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/profesores",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"id\": \"be7f7381-b4bb-467a-a836-af9d56928ee2\",\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 12345,\r\n    \"esParEvaluador\": true\r\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Profesor evaluador",
@@ -136,7 +224,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Profesor evaluador",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 12345,\r\n    \"esParEvaluador\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/profesores",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"id\": \"c018af91-6261-4fc8-b16d-caef6246c7d4\",\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 12345,\r\n    \"esParEvaluador\": true\r\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Proyecto",
@@ -180,7 +312,49 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Proyecto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_mentor_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/proyectos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"id\": \"3971503e-c6c5-42be-a968-5e15fa33db0b\",\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"bbc0a54d-7b64-40e7-b741-35be4efd30d2\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"be7f7381-b4bb-467a-a836-af9d56928ee2\"\r\n    }\r\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Evaluacion",
@@ -224,7 +398,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Evaluacion",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"profesor\": {\r\n        \"id\": \"{{profesor_evaluador_id}}\"\r\n    },\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/evaluaciones",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"evaluaciones"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"e0ddfd90-0e09-4a2f-a409-f3b094b00afa\",\n    \"calificacion\": 4.2,\n    \"proyecto\": {\n        \"id\": \"3971503e-c6c5-42be-a968-5e15fa33db0b\"\n    },\n    \"profesor\": {\n        \"id\": \"c018af91-6261-4fc8-b16d-caef6246c7d4\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Evaluacion donde mentor es evaluador",
@@ -269,7 +487,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Evaluacion donde mentor es evaluador",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"calificacion\": 4.2,\r\n    \"profesor\": {\r\n        \"id\": \"{{profesor_mentor_id}}\"\r\n    },\r\n    \"proyecto\":{\r\n       \"id\": \"{{proyecto_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/evaluaciones",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"evaluaciones"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El evaluador no puede ser el mentor del proyecto\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
 		}
 	],
 	"event": [

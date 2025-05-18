@@ -48,7 +48,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Estudiante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Daniel Trivino\",\r\n    \"semestre\": 5,\r\n    \"programa\": \"Sistemas\",\r\n    \"promedio\": 4.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/estudiantes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"eae8b966-ea73-488f-a5ad-99ff59e36ced\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Daniel Trivino\",\n    \"semestre\": 5,\n    \"programa\": \"Sistemas\",\n    \"promedio\": 4.99\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Estudiante 2",
@@ -92,7 +136,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Estudiante 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Daniel Trivino 2\",\r\n    \"semestre\": 5,\r\n    \"programa\": \"Sistemas\",\r\n    \"promedio\": 4.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/estudiantes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"eae8b966-ea73-488f-a5ad-99ff59e36ced\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Daniel Trivino\",\n    \"semestre\": 5,\n    \"programa\": \"Sistemas\",\n    \"promedio\": 4.99\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Profesor",
@@ -136,7 +224,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Profesor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Cathe Jaque\",\r\n    \"departamento\": \"Psicologia\",\r\n    \"extension\": 12345,\r\n    \"esParEvaluador\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/profesores",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"1c30bd02-1c02-4d8f-902b-931907039f22\",\n    \"cedula\": 100596961,\n    \"nombre\": \"Cathe Jaque\",\n    \"departamento\": \"Psicologia\",\n    \"extension\": 12345,\n    \"esParEvaluador\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Proyecto Activo",
@@ -180,7 +312,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Proyecto Activo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-05-15\",\r\n    \"fecha_fin\": \"2025-05-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/proyectos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"df6dda32-4e7f-4162-a410-101c56ff82dc\",\n    \"titulo\": \"Proyecto X 4632634\",\n    \"area\": \"Sistemas\",\n    \"presupuesto\": 432500,\n    \"nota_final\": 4.67,\n    \"estado\": 3,\n    \"fecha_inicio\": \"2025-05-15\",\n    \"fecha_fin\": \"2025-05-20\",\n    \"lider\": {\n        \"id\": \"eae8b966-ea73-488f-a5ad-99ff59e36ced\"\n    },\n    \"mentor\": {\n        \"id\": \"1c30bd02-1c02-4d8f-902b-931907039f22\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Proyecto Inactivo",
@@ -224,7 +400,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Proyecto Inactivo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Proyecto X 4632634\",\r\n    \"area\": \"Sistemas\",\r\n    \"presupuesto\": 432500,\r\n    \"nota_final\": 4.67,\r\n    \"estado\": 3,\r\n    \"fecha_inicio\": \"2025-04-15\",\r\n    \"fecha_fin\": \"2025-04-20\",\r\n    \"lider\": {\r\n        \"id\": \"{{estudiante_id_2}}\"\r\n    },\r\n    \"mentor\": {\r\n        \"id\": \"{{profesor_id}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/proyectos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"a65f7a1e-4df0-4b23-a5c3-7867ae320df0\",\n    \"titulo\": \"Proyecto X 4632634\",\n    \"area\": \"Sistemas\",\n    \"presupuesto\": 432500,\n    \"nota_final\": 4.67,\n    \"estado\": 3,\n    \"fecha_inicio\": \"2025-04-15\",\n    \"fecha_fin\": \"2025-04-20\",\n    \"lider\": {\n        \"id\": \"87003e2f-0eee-4471-ba22-eeca67aa9bd5\"\n    },\n    \"mentor\": {\n        \"id\": \"1c30bd02-1c02-4d8f-902b-931907039f22\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Estudiante menor Promedio",
@@ -269,7 +489,50 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Estudiante menor Promedio",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Daniel Trivino\",\r\n    \"semestre\": 5,\r\n    \"programa\": \"Sistemas\",\r\n    \"promedio\": 2.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/estudiantes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El promedio no puede ser menor a 3.2\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
 		},
 		{
 			"name": "Crear Estudiante menor Semestre",
@@ -314,7 +577,51 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Crear Estudiante menor Semestre",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": 100596961,\r\n    \"nombre\": \"Daniel Trivino\",\r\n    \"semestre\": 2,\r\n    \"programa\": \"Sistemas\",\r\n    \"promedio\": 4.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/estudiantes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"El semestre no puede ser menor a 4\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
 		},
 		{
 			"name": "Eliminar Estudiante con Proyectos Activos",
@@ -351,7 +658,43 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Eliminar Estudiante con Proyectos Activos",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/estudiantes/{{estudiante_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes",
+								"{{estudiante_id}}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"No se puede eliminar el estudiante porque tiene proyectos en curso\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
 		},
 		{
 			"name": "Eliminar Estudiante sin Proyectos Activos",
@@ -383,7 +726,35 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Eliminar Estudiante sin Proyectos Activos",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/estudiantes/{{estudiante_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes",
+								"{{estudiante_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				}
+			]
 		},
 		{
 			"name": "Eliminar Estudiante que no existe",
@@ -420,7 +791,42 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Eliminar Estudiante que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/estudiantes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"estudiantes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"message\": \"No se encontró un estudiante con ese Id\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+				}
+			]
 		}
 	],
 	"event": [
