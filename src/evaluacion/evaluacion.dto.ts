@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsObject } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsObject, IsOptional } from 'class-validator';
 
 interface IdObject {
     id: string;
@@ -7,7 +7,7 @@ interface IdObject {
 export class EvaluacionDto {
 
     @IsObject()
-    @IsNotEmpty()
+    @IsOptional()
     readonly profesor: IdObject;
 
     @IsObject()

@@ -7,13 +7,13 @@ export class EvaluacionEntity {
     @PrimaryGeneratedColumn('uuid') 
     id: string;
 
-    @Column()
+    @Column({type: 'real'})
     calificacion: number;
 
     @ManyToOne(() => ProyectoEntity, proyecto => proyecto.evaluaciones)
     proyecto: ProyectoEntity;
 
-    @ManyToOne(() => ProfesorEntity, profesor => profesor.evaluaciones)
-    profesor: ProfesorEntity;
+    @ManyToOne(() => ProfesorEntity, profesor => profesor.evaluaciones, { nullable: true, onDelete: 'SET NULL' })
+    profesor: ProfesorEntity | null;
 
 }

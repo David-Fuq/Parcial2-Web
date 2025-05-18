@@ -17,7 +17,7 @@ export class ProfesorController {
 
   @Post(':profesorId/evaluaciones/:evaluacionId')
   async addEvaluacionToProfesor(@Param('profesorId') profesorId: string, @Param('evaluacionId') evaluacionId: string): Promise<ProfesorEntity> {
-      return await this.profesorService.asignarEvaluador(profesorId, profesorId);
+      return await this.profesorService.asignarEvaluador(profesorId, evaluacionId);
   }
 
 }

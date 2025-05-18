@@ -23,14 +23,17 @@ export class EvaluacionService {
             throw new BadRequestException('La calificación debe estar entre 0 y 5');
         }
 
-        const evaluador: string = evaluacion.profesor.id;
+        const evaluador: string | null = evaluacion.profesor? evaluacion.profesor.id: null;
         const proyecto: string = evaluacion.proyecto.id;
-        const evaluadorEntity: ProfesorEntity | null = await this.profesorRepository.findOne({ where: { id: evaluador } });
+
+        if (evaluador !== null){
+        const evaluadorEntity: ProfesorEntity | null = await this.profesorRepository.findOne({ where: { id: evaluador }, relations: ['evaluaciones', 'mentorias'] });
         if (evaluadorEntity === null) {
             throw new BadRequestException('El evaluador no existe');
         }
+    }
 
-        const proyectoEntity: ProyectoEntity | null = await this.proyectoRepository.findOne({ where: { id: proyecto } });
+        const proyectoEntity: ProyectoEntity | null = await this.proyectoRepository.findOne({ where: { id: proyecto }, relations: ['mentor'] });
         if (proyectoEntity === null) {
             throw new BadRequestException('El proyecto no existe');
         }
